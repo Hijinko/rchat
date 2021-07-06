@@ -48,6 +48,7 @@ int main(int argc, char *argv[])
         perror("error sending message ");
         exit(EXIT_FAILURE);
     }
+    printf("SEND >> %s\n", p_client_message);
 
     // receive message
     char server_message[MAX_BUFF] = {'\0'};
@@ -55,6 +56,7 @@ int main(int argc, char *argv[])
         perror("error sending message ");
         exit(EXIT_FAILURE);
     }
+    printf("RECV << %s\n", server_message);
 
     // close socket
     close(h_server_sock);
