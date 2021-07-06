@@ -52,15 +52,15 @@ int main(void)
         perror("error receiving message ");
         exit(EXIT_FAILURE);
     }
+    printf("RECV << %s\n", client_message);
 
     // respond to command
-    char server_message[MAX_BUFF] = {'\0'};
-    char * message = "Hello World!";
-    strncpy(server_message, message, strlen(message));
-    if (send(h_client_sock, server_message, strlen(server_message), 0) < 0){
+    char * p_server_message = "Hello World!";
+    if (send(h_client_sock, p_server_message, strlen(p_server_message), 0) < 0){
         perror("error sending message ");
         exit(EXIT_FAILURE);
     }
+    printf("SEND >> %s\n", p_server_message);
 
     // close socket
     close(h_server_sock);
